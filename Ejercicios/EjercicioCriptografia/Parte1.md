@@ -56,43 +56,43 @@ Se eligió el cifrado Atbash por su simplicidad y importancia histórica como un
 
 ## Ejercicio 1
 
-![alt text](images/image.png)
-![alt text](images/image-1.png)
-![alt text](images/image-2.png)
+![alt text](Images/image.png)
+![alt text](Images/image-1.png)
+![alt text](Images/image-2.png)
 
 ## Ejercicio 2
 
-![alt text](images/image-3.png)
-![alt text](images/image-4.png)
+![alt text](Images/image-3.png)
+![alt text](Images/image-4.png)
 
 ## Ejercicio 3
 
-![alt text](images/image-5.png)
-![alt text](images/image-6.png)
-![alt text](images/image-7.png)
+![alt text](Images/image-5.png)
+![alt text](Images/image-6.png)
+![alt text](Images/image-7.png)
 
 ## Ejercicio 4
 
-![alt text](images/image-8.png)
-![alt text](images/image-9.png)
+![alt text](Images/image-8.png)
+![alt text](Images/image-9.png)
 
 ## Ejercicio 5
 
-![alt text](images/image-10.png)
-![alt text](images/image-11.png)
+![alt text](Images/image-10.png)
+![alt text](Images/image-11.png)
 
 ## Ejercicio 6
 
-![alt text](images/image-12.png)
+![alt text](Images/image-12.png)
 
 ## Ejercicio 7
 
-![alt text](images/image-13.png)
-![alt text](images/image-14.png)
+![alt text](Images/image-13.png)
+![alt text](Images/image-14.png)
 
 ## Ejercicio 8
-![alt text](images/image-15.png)
+![alt text](Images/image-15.png)
 
 ## Ejercicio 9
-![alt text](images/image-16.png)
-![alt text](images/image-17.png)
+![alt text](Images/image-16.png)
+![alt text](Images/image-17.png)
