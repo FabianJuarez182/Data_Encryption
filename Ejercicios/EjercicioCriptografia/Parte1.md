@@ -89,3 +89,10 @@ Se eligió el cifrado Atbash por su simplicidad y importancia histórica como un
 
 ![alt text](images/image-13.png)
 ![alt text](images/image-14.png)
+
+## Ejercicio 8
+![alt text](images/image-15.png)
+
+## Ejercicio 9
+![alt text](images/image-16.png)
+![alt text](images/image-17.png)
