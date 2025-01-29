@@ -12,26 +12,6 @@ def decimal_a_binario(decimal, bits=8):
     binario = binario.zfill(bits)
     return binario
 
-def texto_a_base64(texto):
-    # Convertir texto en binario (8 bits por carácter)
-    binario_completo = ''.join([decimal_a_binario(ord(c), bits=8) for c in texto])
-    
-    # Dividir el binario en bloques de 6 bits (Base64 usa 6 bits por carácter)
-    grupos_de_seis = [binario_completo[i:i+6] for i in range(0, len(binario_completo), 6)]
-    
-    # Asegurar que cada grupo tenga 6 bits (completar con ceros si es necesario)
-    if len(grupos_de_seis[-1]) < 6:
-        grupos_de_seis[-1] = grupos_de_seis[-1].ljust(6, '0')
-    
-    # Convertir cada grupo de 6 bits al índice en la tabla Base64
-    texto_base64 = ''.join([TABLA_BASE64[int(grupo, 2)] for grupo in grupos_de_seis])
-    
-    # Agregar padding "=" si es necesario
-    while len(texto_base64) % 4 != 0:
-        texto_base64 += '='
-    
-    return texto_base64
-
 def base64_a_binario(texto_base64):
     # Lista para almacenar los valores binarios
     binario = []
@@ -72,40 +52,21 @@ def binario_a_decimal(binario):
 
 def binario_a_ascii(texto_binario):
     try:
-        # Eliminar espacios si existen
-        texto_binario = texto_binario.replace(" ", "")
-        
-        # Verificar que solo contenga 0s y 1s
-        if not all(bit in '01' for bit in texto_binario):
-            raise ValueError("El texto debe contener solo 0s y 1s")
-        
-        # Verificar que la longitud sea múltiplo de 8
-        if len(texto_binario) % 8 != 0:
-            raise ValueError("La longitud del texto binario debe ser múltiplo de 8")
-        
-        # Lista para almacenar las posiciones ASCII
-        posiciones_ascii = []
-        
-        # Convertir cada grupo de 8 bits a su correspondiente posición en la tabla ASCII
-        for i in range(0, len(texto_binario), 8):
-            # Obtener grupo de 8 bits
-            byte = texto_binario[i:i+8]
-            # Convertir a decimal
-            decimal = binario_a_decimal(byte)
-            # Almacenar la posición en la tabla ASCII
-            posiciones_ascii.append(decimal)
-        
-        return ' '.join(str(pos) for pos in posiciones_ascii)
+        # Separar los bytes en una lista
+        bytes_binarios = texto_binario.split()
 
-    
+        # Convertir cada byte binario a decimal y luego a su carácter ASCII
+        caracteres = [chr(binario_a_decimal(byte)) for byte in bytes_binarios]
+
+        # Unir los caracteres en una sola cadena para formar el texto original
+        return ''.join(caracteres)
+
     except ValueError as e:
         return f"Error: {str(e)}"
 
 def main():
     print("Conversor de Base64 a ASCII (paso a paso)")
-    string = "Hola"
-    print("Texto original: ", string)
-    texto_base64 = texto_a_base64(string)
+    texto_base64 = "SG9sYQ=="
     
     try:
         # Paso 1: Base64 a Binario

@@ -1,61 +1,23 @@
 class GeneradorLlaves:
-    def __init__(self):
-        # Rango de caracteres ASCII imprimibles (32-126)
-        self.ascii_min = 32  # espacio
-        self.ascii_max = 126 # ~
-        self.semilla = 1
-    
-    def siguiente_numero(self):
-        """Genera un número pseudoaleatorio usando el método congruencial lineal"""
-        a = 1597
-        c = 51749
-        m = 244944
-        self.semilla = (a * self.semilla + c) % m
-        return self.semilla
-    
-    def generar_ascii_aleatorio(self):
-        """Genera un valor ASCII aleatorio dentro del rango válido"""
-        rango = self.ascii_max - self.ascii_min + 1
-        numero = self.siguiente_numero() % rango
-        return self.ascii_min + numero
-    
-    def generar_llave(self, longitud):
-        """Genera una llave de la longitud especificada"""
+    def generar_llave(self, longitud, palabra_clave):
+        """Genera una llave usando una palabra clave que se repite"""
         caracteres = []
         decimales = []
         
-        # Usar el tamaño de la llave como parte de la semilla
-        self.semilla = longitud * 1000 + 7
+        # Convertir la palabra clave a una lista de valores ASCII
+        valores_clave = [ord(c) for c in palabra_clave]
+        longitud_clave = len(valores_clave)
         
-        for _ in range(longitud):
-            valor_decimal = self.generar_ascii_aleatorio()
+        for i in range(longitud):
+            # Usar el valor ASCII del carácter correspondiente de la palabra clave
+            valor_decimal = valores_clave[i % longitud_clave]
             caracter = chr(valor_decimal)
             
             caracteres.append(caracter)
             decimales.append(valor_decimal)
         
-        return {
-            'llave': ''.join(caracteres),
-            'decimales': decimales
-        }
+        return  ''.join(caracteres)
     
-    def mostrar_detalles_llave(self, info_llave):
-        """Muestra los detalles de la llave generada"""
-        print("\nDetalles de la llave generada:")
-        print("-" * 50)
-        print(f"Llave: {info_llave['llave']}")
-        print("\nAnálisis por carácter:")
-        print("-" * 50)
-        print("Posición | Carácter | ASCII")
-        print("-" * 50)
-        
-        for i, (char, decimal) in enumerate(zip(info_llave['llave'], info_llave['decimales'])):
-            print(f"{i+1:^8} | {char:^8} | {decimal:^5}")
-        
-        # Mostrar la llave final en valores ASCII
-        print("\nLlave en valores ASCII:")
-        print(''.join(str(decimal) for decimal in info_llave['decimales']))
-
 def main():
     generador = GeneradorLlaves()
     
@@ -68,12 +30,18 @@ def main():
             if longitud <= 0:
                 print("La longitud debe ser un número positivo.")
                 continue
-                
-            # Generar la llave
-            info_llave = generador.generar_llave(longitud)
             
-            # Mostrar los detalles
-            generador.mostrar_detalles_llave(info_llave)
+            palabra_clave = input("Ingrese la palabra clave: ")
+            if not palabra_clave:
+                print("La palabra clave no puede estar vacía.")
+                continue
+                
+            # Generar la llave con la palabra clave
+            info_llave = generador.generar_llave(longitud, palabra_clave)
+            
+            # Mostrar resultados
+            print("\nLlave generada:")
+            print(f"Caracteres: {info_llave}")
             
             # Preguntar si desea generar otra llave
             continuar = input("\n¿Desea generar otra llave? (s/n): ").lower()

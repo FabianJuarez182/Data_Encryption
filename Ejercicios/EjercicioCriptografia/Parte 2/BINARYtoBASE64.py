@@ -1,29 +1,6 @@
 # Tabla de caracteres Base64
 TABLA_BASE64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 
-def texto_a_binario(texto):
-    # Función auxiliar para convertir un número decimal a binario manualmente
-    def decimal_a_binario(decimal, bits=8):
-        binario = ""
-        while decimal > 0:
-            binario = str(decimal % 2) + binario  # Obtener el bit menos significativo
-            decimal //= 2  # Reducir el número dividiendo por 2
-        
-        # Asegurar que el resultado tenga la longitud deseada (rellenar con ceros a la izquierda)
-        while len(binario) < bits:
-            binario = "0" + binario
-        
-        return binario
-    
-    # Convertir cada carácter del texto en su código ASCII y luego a binario
-    resultado_binario = []
-    for caracter in texto:
-        codigo_ascii = ord(caracter)  # Obtener el código ASCII del carácter
-        binario = decimal_a_binario(codigo_ascii)  # Convertir a binario manualmente
-        resultado_binario.append(binario)  # Añadir el binario al resultado
-    
-    return ' '.join(resultado_binario)  # Unir los binarios con un espacio
-
 def binario_a_decimal(binario):
     # Convertir string binario a decimal usando potencias de 2
     return int(binario, 2)
@@ -70,17 +47,14 @@ def binario_a_base64(texto_binario):
         return f"Error: {str(e)}"
 
 def main():
-    # Entrada del usuario
-    texto = "Hola"
     
     # Convertir texto a binario
-    texto_binario = texto_a_binario(texto)
+    texto_binario = "01001000 01101111 01101100 01100001"
     
     # Convertir binario a Base64
     resultado_base64 = binario_a_base64(texto_binario)
     
     # Mostrar resultados
-    print(f"Texto: {texto}")
     print(f"Binario: {texto_binario}")
     print(f"Base64: {resultado_base64}")
 

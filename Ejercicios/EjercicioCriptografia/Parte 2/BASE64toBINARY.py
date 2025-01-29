@@ -63,16 +63,12 @@ def base64_a_binario(texto_base64):
 
 def main():
     # Entrada del usuario
-    texto = "Hola"
-    
-    # Convertir texto a Base64
-    texto_base64 = texto_a_base64(texto)
+    texto_base64 = "SG9sYQ=="
     
     # Convertir Base64 a binario
     binario_base64 = base64_a_binario(texto_base64)
     
     # Mostrar resultados
-    print(f"Texto: {texto}")
     print(f"Base64: {texto_base64}")
     print(f"Binario: {binario_base64}")
 

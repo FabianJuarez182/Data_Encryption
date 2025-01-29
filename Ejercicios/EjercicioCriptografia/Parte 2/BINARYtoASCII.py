@@ -36,45 +36,25 @@ def binario_a_decimal(binario):
 
 def binario_a_ascii(texto_binario):
     try:
-        # Eliminar espacios si existen
-        texto_binario = texto_binario.replace(" ", "")
-        
-        # Verificar que solo contenga 0s y 1s
-        if not all(bit in '01' for bit in texto_binario):
-            raise ValueError("El texto debe contener solo 0s y 1s")
-        
-        # Verificar que la longitud sea múltiplo de 8
-        if len(texto_binario) % 8 != 0:
-            raise ValueError("La longitud del texto binario debe ser múltiplo de 8")
-        
-        # Lista para almacenar las posiciones ASCII
-        posiciones_ascii = []
-        
-        # Convertir cada grupo de 8 bits a su correspondiente posición en la tabla ASCII
-        for i in range(0, len(texto_binario), 8):
-            # Obtener grupo de 8 bits
-            byte = texto_binario[i:i+8]
-            # Convertir a decimal
-            decimal = binario_a_decimal(byte)
-            # Almacenar la posición en la tabla ASCII
-            posiciones_ascii.append(decimal)
-        
-        return ' '.join(str(pos) for pos in posiciones_ascii)
+        # Separar los bytes en una lista
+        bytes_binarios = texto_binario.split()
 
-    
+        # Convertir cada byte binario a decimal y luego a su carácter ASCII
+        caracteres = [chr(binario_a_decimal(byte)) for byte in bytes_binarios]
+
+        # Unir los caracteres en una sola cadena
+        return ''.join(caracteres)
+
     except ValueError as e:
         return f"Error: {str(e)}"
 
+
 def main():
-    texto = "Hola"
-    
-    # Convertir texto a binario
-    texto_binario = texto_a_binario(texto)
-    print(f"Texto original: {texto}")
-    print(f"Binario: {texto_binario}")
+    texto_binario = "01001000 01101111 01101100 01100001"
     
     # Convertir binario a ASCII
     resultado = binario_a_ascii(texto_binario)
+    print(f"Binario: {texto_binario}")
     print(f"\nBinario a ASCII: {resultado}")
 
 if __name__ == "__main__":
