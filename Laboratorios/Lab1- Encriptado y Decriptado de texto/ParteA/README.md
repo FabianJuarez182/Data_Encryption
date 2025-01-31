@@ -21,11 +21,11 @@ Las principales dependencias del proyecto incluyen:
 * [![GitHub][GitHub]][GitHub-fabian]
 
 ## 📖 Ejercicios
-### Parte 1
-Puede acceder a los scripts del primer ejercicio haciendo clic [aquí](https://github.com/FabianJuarez182/Data_Encryption/blob/main/Ejercicios/EjercicioCriptografia/Parte1.md).
+### Parte A
+Puede acceder a los scripts del primer ejercicio haciendo clic [aquí](https://github.com/FabianJuarez182/Data_Encryption/tree/main/Laboratorios/Lab1-%20Encriptado%20y%20Decriptado%20de%20texto/ParteA/Parte%20A).
 
-### Parte 2
-Puedes acceder a los scripts del segundo ejercicio haciendo clic [aquí](https://github.com/FabianJuarez182/Data_Encryption/tree/main/Laboratorios/Lab1-%20Encriptado%20y%20Decriptado%20de%20texto/ParteA/Parte%20A).
+### Parte B
+Puedes acceder a los scripts del segundo ejercicio haciendo clic [aquí]().
 
 ## 🤖 Uso de IA
 * Se utilizó Claude 3.5 Sonnet .
