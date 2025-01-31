@@ -7,7 +7,7 @@
     - Finalizado el 30.01.2025
 '''
 
-Diccionario = 'abcdefghijklmnopqrstuvwxyz'
+Diccionario = 'abcdefghijklmnñopqrstuvwxyz'
 
 def encriptar(texto, desplazamiento=3):
     resultado = ""

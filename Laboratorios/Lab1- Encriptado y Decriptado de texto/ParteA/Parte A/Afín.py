@@ -69,7 +69,7 @@ def descifrado_afin(texto, a, b):
 
 # Ejemplo de uso
 if __name__ == "__main__":
-    Diccionario = 'abcdefghijklmnopqrstuvwxyz'
+    Diccionario = 'abcdefghijklmnñopqrstuvwxyz'
     mensaje = "hola mundo"
     a = 5  # debe ser coprimo con len(Diccionario) = 26
     b = 8
