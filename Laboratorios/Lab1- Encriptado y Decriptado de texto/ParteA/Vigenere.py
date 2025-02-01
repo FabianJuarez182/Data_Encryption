@@ -35,7 +35,7 @@ def cifrado_vigenere(mensaje, clave):
             m = Diccionario.index(mensaje[i])
             k = Diccionario.index(clave_completa[i])
             
-            # Aplicar el cifrado: (mi + ki) mod 26
+            # Aplicar el cifrado: (mi + ki) mod 27
             nueva_pos = (m + k) % len(Diccionario)
             resultado += Diccionario[nueva_pos]
         else:
@@ -55,7 +55,7 @@ def descifrado_vigenere(mensaje_cifrado, clave):
             c = Diccionario.index(mensaje_cifrado[i])
             k = Diccionario.index(clave_completa[i])
             
-            # Aplicar el descifrado: (ci - ki) mod 26
+            # Aplicar el descifrado: (ci - ki) mod 27
             nueva_pos = (c - k) % len(Diccionario)
             resultado += Diccionario[nueva_pos]
         else:

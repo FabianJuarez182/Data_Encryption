@@ -1,14 +1,13 @@
-# Ejercicio de Criptografía
+# Laboratorio 1 de Criptografía
 
 ## 📜 Descripción
-Este ejercicio tiene como objetivo estudiar los principios fundamentales de la criptografía, mediante el análisis de un método de cifrado y el desarrollo de scripts para realizar conversiones entre ASCII, binario y Base64, así como para ejecutar operaciones de cifrado utilizando claves dinámicas y personalizadas.
+Este laboratorio tiene como objetivo implementar funciones de encriptacion y desencriptacion para cifrado Ceasar, Afín y Vigenere. Tambien el identificar los requisitos para un análisis de fuerza bruta por frecuencia.
 
 ## ✨ Características
-- Investigación de distintos tipos de Cifrado
-- Conversiones entre ASCII, binario y Base64
-- Operación XOR
-- Llaves Dinámicas
-- Cifrado Personalizado
+- Investigación de distintos tipos de Cifrado y decifrado
+- Frecuencias de palabras
+- Identificacion de requisitos para fuerza bruta
+- Fuerza bruta
 
 ## 📦 Dependencias Principales
 Las principales dependencias del proyecto incluyen:
@@ -28,7 +27,7 @@ Puede acceder a los scripts del primer ejercicio haciendo clic [aquí](https://g
 Puedes acceder a los scripts del segundo ejercicio haciendo clic [aquí]().
 
 ## 🤖 Uso de IA
-* Se utilizó Claude 3.5 Sonnet .
+* Se utilizó Claude 3.5 Sonnet, encuentra el chat [aquí](https://shareclaude.pages.dev/c/r38hjtau2lj0q542z5wqoqsm).
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
