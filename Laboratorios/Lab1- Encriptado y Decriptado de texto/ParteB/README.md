@@ -1,0 +1,26 @@
+# Lab1 part B
+
+Implementación de fuerza bruta para el algoritmo Caesar, Afín y Vigenere
+
+## Results
+
+### Caesar
+```
+Shift: 23
+Distance: 0.298
+Decrypted text:
+    nnuestrolaberintodigitalenconstanteevolucionlaagilidadcriptograficacriptoagilidadparaabreviaresunmecanismodedefensacrucialosbrindalacapacidaddemodificarrapidamenteelusodealgoritmosyclavescriptograficosunaaccionnecesariaparaanticiparnosalasfuturasamenazasdeciberseguridad
+```
+
+### Afin
+```
+a = 5, b = 15
+Distance: 0.1491
+Decrypted text:
+    nejemplodelanecesidaddecriptoagilidadsepuedeextraerdelosataqueseartbleedugdelerrorrevelounadebilidadcrucialquepermitioalosatacantesleerlamemoriademilesdesistemasyrobarinformacionvaliosaasempresasquelograronrecuperarserapidamentefueronlasquedemostraroncriptoagilidadreemplazandorapidamentesusclavescriptograficasyalgoritmoscomprometidosporotrosnuevosysegurossteincidentesirvecomounclaroejemplodelaimportanciadelacriptoagilidadennuestrabatallacontinuacontralasamenazasdinamicasdeciberseguridad
+```
+
+### Vigenere
+```
+
+```
