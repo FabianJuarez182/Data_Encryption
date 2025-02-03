@@ -72,7 +72,7 @@ def comparar_distribuciones(frecuencias_texto):
     for letra in Diccionario:
         freq_texto = frecuencias_texto[letra] * 100
         freq_teorica = dist_teorica[letra] * 100
-        diferencia = (freq_texto - freq_teorica) * 100
+        diferencia = (freq_texto - freq_teorica)
         print(f"{letra:5} | {freq_texto:6.4f}% | {freq_teorica:6.4f}% | {diferencia:8.4f}%")
 def graficar_comparacion_distribuciones(frecuencias_texto):
     """Genera un gráfico comparativo entre la distribución del texto y la teórica"""
