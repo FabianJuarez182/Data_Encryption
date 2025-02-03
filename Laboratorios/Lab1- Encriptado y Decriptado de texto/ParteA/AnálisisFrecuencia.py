@@ -4,7 +4,7 @@
  * Lenguaje: Python
  * Recursos: Cursor
  * Historial: 
-    - Finalizado el 01.02.2025
+    - Finalizado el 03.02.2025
 '''
 
 import matplotlib.pyplot as plt
@@ -70,10 +70,39 @@ def comparar_distribuciones(frecuencias_texto):
     print("------------------------------------")
     
     for letra in Diccionario:
-        freq_texto = frecuencias_texto[letra]
-        freq_teorica = dist_teorica[letra]
+        freq_texto = frecuencias_texto[letra] * 100
+        freq_teorica = dist_teorica[letra] * 100
         diferencia = (freq_texto - freq_teorica) * 100
-        print(f"{letra:5} | {freq_texto:6.4f} | {freq_teorica:6.4f} | {diferencia:8.4f}%")
+        print(f"{letra:5} | {freq_texto:6.4f}% | {freq_teorica:6.4f}% | {diferencia:8.4f}%")
+def graficar_comparacion_distribuciones(frecuencias_texto):
+    """Genera un gráfico comparativo entre la distribución del texto y la teórica"""
+    dist_teorica = obtener_distribucion_teorica()
+    
+    # Preparar datos para la gráfica
+    letras = list(Diccionario)
+    freq_texto = [frecuencias_texto[letra] for letra in letras]
+    freq_teorica = [dist_teorica[letra] for letra in letras]
+    
+    # Configurar el tamaño de la figura
+    plt.figure(figsize=(15, 6))
+    
+    # Crear gráfico de barras agrupadas
+    x = range(len(letras))
+    ancho = 0.35
+    
+    plt.bar([i - ancho/2 for i in x], freq_texto, ancho, label='Texto Analizado', color='skyblue')
+    plt.bar([i + ancho/2 for i in x], freq_teorica, ancho, label='Distribución Teórica', color='lightcoral')
+    
+    # Personalizar el gráfico
+    plt.xlabel('Letras')
+    plt.ylabel('Frecuencia Relativa')
+    plt.title('Comparación de Distribuciones de Frecuencia')
+    plt.xticks(x, letras)
+    plt.legend()
+    
+    # Ajustar el diseño para evitar que se corten las etiquetas
+    plt.tight_layout()
+    plt.show()
 
 # Ejemplo de uso
 if __name__ == "__main__":
@@ -83,5 +112,5 @@ if __name__ == "__main__":
     
     frecuencias = analizar_frecuencia(texto_ejemplo)
     mostrar_resultados(frecuencias)
-    graficar_frecuencias(frecuencias)
     comparar_distribuciones(frecuencias)
+    graficar_comparacion_distribuciones(frecuencias) 
