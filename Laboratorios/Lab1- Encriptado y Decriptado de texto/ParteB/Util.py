@@ -4,12 +4,13 @@ Diccionario = 'abcdefghijklmnñopqrstuvwxyz'
 def obtener_distribucion_teorica():
     """Retorna la distribución teórica de frecuencias del español"""
     return {
-        'a': 0.1253, 'b': 0.0142, 'c': 0.0468, 'd': 0.0586, 'e': 0.1368,
-        'f': 0.0069, 'g': 0.0101, 'h': 0.0070, 'i': 0.0625, 'j': 0.0044,
-        'k': 0.0002, 'l': 0.0497, 'm': 0.0315, 'n': 0.0671, 'ñ': 0.0031,
-        'o': 0.0868, 'p': 0.0251, 'q': 0.0088, 'r': 0.0687, 's': 0.0798,
-        't': 0.0463, 'u': 0.0393, 'v': 0.0090, 'w': 0.0001, 'x': 0.0022,
-        'y': 0.0090, 'z': 0.0052
+    'a': 0.11525, 'b': 0.02215, 'c': 0.04019, 'd': 0.05010, 'e': 0.12181,
+    'f': 0.00692, 'g': 0.01768, 'h': 0.00703, 'i': 0.06247, 'j': 0.00493,
+    'k': 0.00011, 'l': 0.04967, 'm': 0.03157, 'n': 0.06712, 'ñ': 0.00311,
+    'o': 0.08683, 'p': 0.02510, 'q': 0.00877, 'r': 0.06871, 's': 0.07977,
+    't': 0.04632, 'u': 0.02927, 'v': 0.01138, 'w': 0.00017, 'x': 0.00215,
+    'y': 0.01008, 'z': 0.00467, 'á': 0.00502, 'é': 0.00433, 'í': 0.00725,
+    'ó': 0.00827, 'ú': 0.00168, 'ü': 0.00012
     }
 
 def analizar_frecuencia(texto):
@@ -40,7 +41,7 @@ def calcular_metrica(frecuencias_texto):
     diferencia_total = 0
     
     for letra in Diccionario:
-        diferencia = abs(frecuencias_texto[letra] - dist_teorica[letra])
+        diferencia = ((frecuencias_texto[letra] - dist_teorica[letra]) ** 2) / dist_teorica[letra]
         diferencia_total += diferencia
     
     return diferencia_total
