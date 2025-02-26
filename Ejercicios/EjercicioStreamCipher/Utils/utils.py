@@ -233,23 +233,11 @@ class CifradoXOR:
             resultado += '1' if b1 != b2 else '0'
         return resultado
     
-    def ajustar_llave(self, llave, longitud_objetivo):
-        """Ajusta la llave para que coincida con la longitud objetivo"""
-        if len(llave) >= longitud_objetivo:
-            return llave[:longitud_objetivo]
-        else:
-            # Repetir la llave hasta alcanzar la longitud deseada
-            llave_repetida = llave * (longitud_objetivo // len(llave) + 1)
-            return llave_repetida[:longitud_objetivo]
-    
     def cifrar(self, mensaje, llave):
-        """Cifra el mensaje usando XOR con la llave ajustada"""
-        # Ajustar la llave a la longitud del mensaje
-        llave_ajustada = self.ajustar_llave(llave, len(mensaje))
-        
+        """Cifra el mensaje usando XOR con la llave ajustada"""        
         # Convertir mensaje y llave a binario
         mensaje_bin = self.texto_a_binario(mensaje)
-        llave_bin = self.texto_a_binario(llave_ajustada)
+        llave_bin = self.texto_a_binario(llave)
         
         # Realizar XOR
         resultado_bin = self.xor_binario(mensaje_bin, llave_bin)

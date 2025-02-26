@@ -12,20 +12,18 @@ def CifradoDecifradoKeystream(mensaje, clave):
     
     keystream_text = utils.bytes_to_hex(keystream)
     # Realizar cifrado con la llave ajustada
-    llave_ajustada = cifrador.ajustar_llave(keystream_text, len(mensaje))
     texto_cifrado = cifrador.cifrar(mensaje, keystream_text)
     
     # Mostrar resultados Cifrados
     print("\nResultados:")
     print(f"Mensaje original: {mensaje}")
     print(f"Mensaje en binario: {cifrador.texto_a_binario(mensaje)}")
-    print(f"Llave ajustada: {llave_ajustada}")
-    print(f"Llave ajustada en binario: {cifrador.texto_a_binario(llave_ajustada)}")
+    print(f"Llave : {keystream_text}")
     print(f"Mensaje cifrado (ASCII): {texto_cifrado}")
     print(f"Cifrado en binario: {cifrador.texto_a_binario(texto_cifrado)}")
     
     # Mostrar resultados Descifrar
-    mensaje_descifrado = cifrador.descifrar(texto_cifrado, llave_ajustada)
+    mensaje_descifrado = cifrador.descifrar(texto_cifrado, keystream_text)
     print("\nResultados Descifrado:")
     print(f"Mensaje cifrado (ASCII): {texto_cifrado}")
     print(f"Mensaje descifrado (ASCII): {mensaje_descifrado}")

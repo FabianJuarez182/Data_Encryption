@@ -26,14 +26,11 @@ class TestCifradoKeystream(unittest.TestCase):
         keystream = generate_keystream(clave, len(mensaje))
         keystream_text = bytes_to_hex(keystream)
         
-        # Ajustar keystream a la longitud del mensaje
-        llave_ajustada = self.cifrador.ajustar_llave(keystream_text, len(mensaje))
-        
         # Cifrar mensaje
         texto_cifrado = self.cifrador.cifrar(mensaje, keystream_text)
         
         # Descifrar mensaje
-        mensaje_descifrado = self.cifrador.descifrar(texto_cifrado, llave_ajustada)
+        mensaje_descifrado = self.cifrador.descifrar(texto_cifrado, keystream_text)
         
         # Verificar que el mensaje descifrado coincide con el original
         self.assertEqual(mensaje, mensaje_descifrado)
@@ -46,15 +43,12 @@ class TestCifradoKeystream(unittest.TestCase):
         # Generar keystream
         keystream = generate_keystream(clave, len(mensaje))
         keystream_text = bytes_to_hex(keystream)
-        
-        # Ajustar keystream a la longitud del mensaje
-        llave_ajustada = self.cifrador.ajustar_llave(keystream_text, len(mensaje))
-        
+                
         # Cifrar mensaje
         texto_cifrado = self.cifrador.cifrar(mensaje, keystream_text)
         
         # Descifrar mensaje
-        mensaje_descifrado = self.cifrador.descifrar(texto_cifrado, llave_ajustada)
+        mensaje_descifrado = self.cifrador.descifrar(texto_cifrado, keystream_text)
         
         # Verificar que el mensaje descifrado coincide con el original
         self.assertEqual(mensaje, mensaje_descifrado)
@@ -68,14 +62,11 @@ class TestCifradoKeystream(unittest.TestCase):
         keystream = generate_keystream(clave, len(mensaje))
         keystream_text = bytes_to_hex(keystream)
         
-        # Ajustar keystream a la longitud del mensaje
-        llave_ajustada = self.cifrador.ajustar_llave(keystream_text, len(mensaje))
-        
         # Cifrar mensaje
         texto_cifrado = self.cifrador.cifrar(mensaje, keystream_text)
         
         # Descifrar mensaje
-        mensaje_descifrado = self.cifrador.descifrar(texto_cifrado, llave_ajustada)
+        mensaje_descifrado = self.cifrador.descifrar(texto_cifrado, keystream_text)
         
         # Verificar que el mensaje descifrado coincide con el original
         self.assertEqual(mensaje, mensaje_descifrado)
@@ -94,21 +85,17 @@ class TestCifradoKeystream(unittest.TestCase):
         keystream_incorrecto = generate_keystream(clave_incorrecta, len(mensaje))
         keystream_text_incorrecto = bytes_to_hex(keystream_incorrecto)
         
-        # Ajustar keystreams
-        llave_ajustada_original = self.cifrador.ajustar_llave(keystream_text_original, len(mensaje))
-        llave_ajustada_incorrecta = self.cifrador.ajustar_llave(keystream_text_incorrecto, len(mensaje))
-        
         # Cifrar con la clave original
         texto_cifrado = self.cifrador.cifrar(mensaje, keystream_text_original)
         
         # Descifrar con la clave incorrecta
-        mensaje_descifrado_incorrecto = self.cifrador.descifrar(texto_cifrado, llave_ajustada_incorrecta)
+        mensaje_descifrado_incorrecto = self.cifrador.descifrar(texto_cifrado, keystream_text_incorrecto)
         
         # Verificar que el descifrado con clave incorrecta no coincide con el mensaje original
         self.assertNotEqual(mensaje, mensaje_descifrado_incorrecto)
         
         # Descifrar con la clave correcta
-        mensaje_descifrado_correcto = self.cifrador.descifrar(texto_cifrado, llave_ajustada_original)
+        mensaje_descifrado_correcto = self.cifrador.descifrar(texto_cifrado, keystream_text_original)
         
         # Verificar que el descifrado con clave correcta coincide con el mensaje original
         self.assertEqual(mensaje, mensaje_descifrado_correcto)
@@ -128,15 +115,12 @@ class TestCifradoKeystream(unittest.TestCase):
         
         # Verificar que ambos keystreams son idénticos para la misma clave y longitud
         self.assertEqual(keystream_text, keystream_text2)
-        
-        # Ajustar keystream
-        llave_ajustada = self.cifrador.ajustar_llave(keystream_text, len(mensaje))
-        
+            
         # Cifrar mensaje
         texto_cifrado = self.cifrador.cifrar(mensaje, keystream_text)
         
         # Descifrar mensaje
-        mensaje_descifrado = self.cifrador.descifrar(texto_cifrado, llave_ajustada)
+        mensaje_descifrado = self.cifrador.descifrar(texto_cifrado, keystream_text)
         
         # Verificar que el mensaje descifrado coincide con el original
         self.assertEqual(mensaje, mensaje_descifrado)
@@ -149,15 +133,12 @@ class TestCifradoKeystream(unittest.TestCase):
         # Generar keystream
         keystream = generate_keystream(clave, len(mensaje))
         keystream_text = bytes_to_hex(keystream)
-        
-        # Ajustar keystream
-        llave_ajustada = self.cifrador.ajustar_llave(keystream_text, len(mensaje))
-        
+                
         # Cifrar mensaje
         texto_cifrado = self.cifrador.cifrar(mensaje, keystream_text)
         
         # Cifrar el texto cifrado de nuevo con la misma clave
-        texto_recifrado = self.cifrador.cifrar(texto_cifrado, llave_ajustada)
+        texto_recifrado = self.cifrador.cifrar(texto_cifrado, keystream_text)
         
         # Verificar que el texto recifrado es igual al mensaje original
         # Esto demuestra la propiedad simétrica de XOR (A ⊕ B ⊕ B = A)
