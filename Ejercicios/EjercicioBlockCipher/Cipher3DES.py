@@ -40,12 +40,12 @@ def descifrar_3des(clave, iv, mensaje_cifrado):
     return mensaje_descifrado.decode('utf-8')
 
 # Prueba de las funciones
-mensaje = """The DES block cipher is a 16-round Feistel network with a block length of
-64 bits and a key length of 56 bits. The same round function ˆ f is used in each
-of the 16 rounds. The round function takes a 48-bit sub-key and, as expected
-for a (balanced) Feistel network, a 32-bit input (namely, half a block). The
-key schedule of DES is used to derive a sequence of 48-bit sub-keys k1, . . . , k16
-from the 56-bit master key."""
+mensaje = """The main weakness of DES is its short key. It thus makes sense to try to
+design a block cipher with a larger key length using DES as a building block.
+Some approaches to doing so are discussed in this section. Although we refer
+to DES frequently throughout the discussion, and DES is the most prominent
+block cipher to which these techniques have been applied, everything we say
+here applies generically to any block cipher."""
 clave, iv, mensaje_cifrado = cifrar_3des(mensaje)
 print("Mensaje cifrado:", mensaje_cifrado)
 
