@@ -1,17 +1,17 @@
 import os
-Diccionario = 'abcdefghijklmnñopqrstuvwxyz'
+Diccionario = 'abcdefghijklmnopqrstuvwxyz'
 
 def obtener_distribucion_teorica():
-    """Retorna la distribución teórica de frecuencias del español"""
+    """Retorna la distribución teórica de frecuencias del español sin letras especiales ni ñ"""
     return {
-    'a': 0.11525, 'b': 0.02215, 'c': 0.04019, 'd': 0.05010, 'e': 0.12181,
-    'f': 0.00692, 'g': 0.01768, 'h': 0.00703, 'i': 0.06247, 'j': 0.00493,
-    'k': 0.00011, 'l': 0.04967, 'm': 0.03157, 'n': 0.06712, 'ñ': 0.00311,
-    'o': 0.08683, 'p': 0.02510, 'q': 0.00877, 'r': 0.06871, 's': 0.07977,
-    't': 0.04632, 'u': 0.02927, 'v': 0.01138, 'w': 0.00017, 'x': 0.00215,
-    'y': 0.01008, 'z': 0.00467, 'á': 0.00502, 'é': 0.00433, 'í': 0.00725,
-    'ó': 0.00827, 'ú': 0.00168, 'ü': 0.00012
+        'a': 0.11525, 'b': 0.02215, 'c': 0.04019, 'd': 0.05010, 'e': 0.12181,
+        'f': 0.00692, 'g': 0.01768, 'h': 0.00703, 'i': 0.06247, 'j': 0.00493,
+        'k': 0.00011, 'l': 0.04967, 'm': 0.03157, 'n': 0.06712, 'o': 0.08683,
+        'p': 0.02510, 'q': 0.00877, 'r': 0.06871, 's': 0.07977, 't': 0.04632,
+        'u': 0.02927, 'v': 0.01138, 'w': 0.00017, 'x': 0.00215, 'y': 0.01008,
+        'z': 0.00467
     }
+
 
 def analizar_frecuencia(texto):
     """Analiza la frecuencia de cada carácter en el texto"""
