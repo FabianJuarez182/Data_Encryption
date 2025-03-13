@@ -106,9 +106,7 @@ def graficar_comparacion_distribuciones(frecuencias_texto):
 
 # Ejemplo de uso
 if __name__ == "__main__":
-    texto_ejemplo = """Este es un texto de ejemplo para analizar la frecuencia
-                      de aparición de cada letra en español. Incluye números 123
-                      y símbolos !@# que serán ignorados en el análisis."""
+    texto_ejemplo = """SV OHU JVUZLNBPKV, OHU LUJVUAYHKV BUH MSHN WHYH LS ZPNBPLUAL KLZHMPV MSHN { JYFWAV_HUHSFZPZ } """
     
     frecuencias = analizar_frecuencia(texto_ejemplo)
     mostrar_resultados(frecuencias)
