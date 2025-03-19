@@ -1,10 +1,14 @@
 # Laboratorio Cifrados Simetricos
 
 ## 📜 Descripción
-
+Este laboratorio tiene como objetivo explorar y analizar distintos métodos de cifrado simétrico, incluyendo AES en sus diferentes modos de operación (ECB, CBC, GCM) y ChaCha20. A través de ejercicios prácticos y análisis de capturas de tráfico de red, se estudian sus características, seguridad y rendimiento.
 
 ## ✨ Características
-- 
+- Comparación de los modos de cifrado AES-ECB y AES-CBC en imágenes.
+- Análisis de tráfico cifrado en Wireshark para identificar el algoritmo utilizado.
+- Evaluación de rendimiento entre ChaCha20 y AES-CBC.
+- Estrategias para prevenir ataques de ransomware y gestionar claves de cifrado de manera segura.
+Uso de herramientas de inteligencia artificial para facilitar el análisis.
 
 ## 📦 Dependencias Principales
 Las principales dependencias del proyecto incluyen:
